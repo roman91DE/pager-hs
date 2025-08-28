@@ -1,8 +1,19 @@
 module Main where
 
-import qualified MyLib (someFunc)
+import PagerLib
+import System.IO (hSetBuffering, hSetEcho, stdin, BufferMode(NoBuffering))
+
+
 
 main :: IO ()
 main = do
-  putStrLn "Hello, Haskell!"
-  MyLib.someFunc
+  hSetBuffering stdin NoBuffering 
+  hSetEcho stdin False
+  input <- getInputFile "n.cabal"
+  termSize <- getTerminalSize
+  let chunks' = wrapText termSize input
+  let parts' = parts termSize chunks'
+  let ps = PagerState parts' 0
+  pagerLoop ps
+
+
