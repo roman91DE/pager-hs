@@ -11,7 +11,7 @@ cabal-version:      3.0
 --   http://haskell.org/cabal/users-guide/
 --
 -- The name of the package.
-name:               n
+name:               pager
 
 -- The package version.
 -- See the Haskell package versioning policy (PVP) for standards
@@ -75,7 +75,7 @@ library
     -- Base language which the package is written in.
     default-language: Haskell2010
 
-executable n
+executable pager
     -- Import common warning flags.
     import:           warnings
 
@@ -91,7 +91,7 @@ executable n
     -- Other library packages from which modules are imported.
     build-depends:
         base ^>=4.17.2.1,
-        n
+        pager
 
     -- Directories containing source files.
     hs-source-dirs:   app
@@ -124,4 +124,4 @@ test-suite n-test
     -- Test dependencies.
     build-depends:
         base ^>=4.17.2.1,
-        n
+        pager
